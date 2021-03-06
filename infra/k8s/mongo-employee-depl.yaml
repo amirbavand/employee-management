@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-eomployee-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-eomployee
+  template:
+    metadata:
+      labels:
+        app: mongo-eomployee
+    spec:
+      containers:
+        - name: mongo-eomployee
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-eomployee-service
+spec:
+  selector:
+    app: mongo-eomployee
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

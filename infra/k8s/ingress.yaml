@@ -14,3 +14,7 @@ spec:
             backend:
               serviceName: authentication-service
               servicePort: 3000
+          - path: /api/employees/?(.*)
+            backend:
+              serviceName: employee-service
+              servicePort: 3000
