@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 // An interface that describes the properties
 // that are requried to create a new User
 interface UserAttrs {
+  EmployeeId: string;
   Name: string;
   Surname: string;
   PhoneNumber: string;
@@ -12,13 +13,13 @@ interface UserAttrs {
 
 // An interface that describes the properties
 // that a User Model has
-interface UserModel extends mongoose.Model<UserDoc> {
-  build(attrs: UserAttrs): UserDoc;
+interface UserModel extends mongoose.Model<EmployeeDoc> {
+  build(attrs: UserAttrs): EmployeeDoc;
 }
 
 // An interface that describes the properties
 // that a User Document has
-interface UserDoc extends mongoose.Document {
+interface EmployeeDoc extends mongoose.Document {
   EmployeeId: string;
   Name: string;
   Surname: string;
@@ -27,7 +28,7 @@ interface UserDoc extends mongoose.Document {
   Title: string;
 }
 
-const userSchema = new mongoose.Schema(
+const EmployeeSchema = new mongoose.Schema(
   {
     EmployeeId: {
       type: String,
@@ -66,10 +67,13 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.statics.build = (attrs: UserAttrs) => {
-  return new User(attrs);
+EmployeeSchema.statics.build = (attrs: UserAttrs) => {
+  return new Employee(attrs);
 };
 
-const User = mongoose.model<UserDoc, UserModel>("User", userSchema);
+const Employee = mongoose.model<EmployeeDoc, UserModel>(
+  "Employee",
+  EmployeeSchema
+);
 
-export { User };
+export { Employee };
