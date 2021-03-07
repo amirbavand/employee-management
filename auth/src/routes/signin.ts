@@ -5,6 +5,7 @@ import { validateRequest } from "../middle-ware/validate-request";
 
 import { Password } from "../workers/password";
 import { User } from "../models/user";
+import { NotAuthorizedError } from "../errors/not-authorized-error";
 
 const router = express.Router();
 
@@ -28,7 +29,7 @@ router.post(
     const existingUser = await User.findOne({ username });
     if (!existingUser) {
       console.log("there is no user");
-      throw new Error("Invalid credentials");
+      throw new NotAuthorizedError();
     }
 
     const passwordsMatch = await Password.compare(
@@ -36,10 +37,9 @@ router.post(
       password
     );
     if (!passwordsMatch) {
-      throw new Error("Invalid Credentials");
+      throw new NotAuthorizedError();
     }
 
-    // Generate JWT
     const userJwt = jwt.sign(
       {
         id: existingUser.id,
