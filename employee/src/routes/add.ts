@@ -14,22 +14,22 @@ router.post(
       .not()
       .isEmpty()
       .isString()
-      .withMessage("title string is required"),
+      .withMessage("id string is required"),
     body("Name")
       .not()
       .isEmpty()
       .isString()
-      .withMessage("title string is required"),
+      .withMessage("name string is required"),
     body("Surname")
       .not()
       .isEmpty()
       .isString()
-      .withMessage("title string is required"),
+      .withMessage("surename string is required"),
     body("Address")
       .not()
       .isEmpty()
       .isString()
-      .withMessage("title string is required"),
+      .withMessage("body string is required"),
     body("Title")
       .not()
       .isEmpty()
