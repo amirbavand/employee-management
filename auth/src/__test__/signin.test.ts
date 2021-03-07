@@ -22,11 +22,13 @@ it("it should fail when password is wrong", async () => {
 });
 
 it("it should pass when password and username both are correct", async () => {
-  await request(app)
+  const response = await request(app)
     .post("/api/users/signin")
     .send({
       username: "amir",
       password: "amir",
     })
     .expect(200);
+
+  expect(response.get("Set-Cookie")).toBeDefined();
 });

@@ -1,6 +1,7 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
 import { app } from "../app";
+import { User } from "../../src/models/user";
 
 let mongo: any;
 beforeAll(async () => {
@@ -21,6 +22,11 @@ beforeEach(async () => {
   for (let collection of collections) {
     await collection.deleteMany({});
   }
+  const user = await User.build({
+    username: "amir",
+    password: "amir",
+  });
+  await user.save();
 });
 
 afterAll(async () => {
