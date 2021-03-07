@@ -10,6 +10,9 @@ import cookieSession from "cookie-session";
 import { User } from "./models/user";
 import { errorHandler } from "./middle-ware/error-handler";
 
+import { NotFoundError } from "./errors/not-found-error";
+import { DatabaseConnectionError } from "./errors/database-connection-error";
+
 const app = express();
 app.set("trust proxy", true);
 
@@ -27,7 +30,7 @@ app.use(signoutRouter);
 
 app.all("*", async (req, res) => {
   console.log("no roote error");
-  throw new Error();
+  throw new NotFoundError();
 });
 
 app.use(errorHandler);
@@ -48,6 +51,7 @@ const start = async () => {
     console.log("Connected to MongoDb");
   } catch (err) {
     console.error(err);
+    throw new DatabaseConnectionError();
   }
   app.listen(3000, () => {
     console.log("Listening on port 3000!!!!!!!!");
@@ -58,3 +62,6 @@ start();
 
 const a = User.build({ username: "amir", password: "amir" });
 a.save();
+
+const b = User.build({ username: "james", password: "james" });
+b.save();
