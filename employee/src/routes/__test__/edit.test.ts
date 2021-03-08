@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import { signinMock } from "../../test/signin-mock";
 import { Employee } from "../../models/employee";
 
-it("should return error by inserting ", async () => {
+it("should return error by inserting wrong employee", async () => {
   const id = new mongoose.Types.ObjectId().toHexString();
   await request(app)
     .put(`/api/employees/${id}`)
@@ -35,7 +35,7 @@ it("returning 401 error by not signing in", async () => {
     .expect(401);
 });
 
-it("returning error 40 by invalid request", async () => {
+it("returning error 400 by invalid request", async () => {
   const cookie = signinMock();
 
   const response = await request(app)
@@ -206,7 +206,7 @@ it("should return error if try to assign a employee id that exists in the databa
     .expect(400);
 });
 
-it("edit the emolyee with valid input", async () => {
+it("successfuly edit the emolyee with valid input", async () => {
   const cookie = signinMock();
 
   const response = await request(app)
