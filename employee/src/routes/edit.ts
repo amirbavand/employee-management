@@ -3,6 +3,7 @@ import { requireAuth } from "../middle-ware/require-auth";
 import { Employee } from "../models/employee";
 import { validateRequest } from "../middle-ware/validate-request";
 import { body } from "express-validator";
+import { NotFoundError } from "../errors/not-found-error";
 
 const router = express.Router();
 
@@ -39,11 +40,11 @@ router.put(
   validateRequest,
   async (req: Request, res: Response) => {
     const { EmployeeId, Name, Surname, PhoneNumber, Address, Title } = req.body;
-
-    const employee = await Employee.findOne({ EmployeeId: EmployeeId });
+    const employee = await Employee.findById(req.params.id);
     if (!employee) {
-      throw new Error("no employee");
+      throw new NotFoundError();
     }
+
     employee.set({
       EmployeeId: EmployeeId,
       Name: Name,

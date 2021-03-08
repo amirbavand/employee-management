@@ -1,5 +1,5 @@
 import request from "supertest";
-import { app } from "../../src/app";
+import { app } from "../../app";
 
 it("it should fail when username is wrong", async () => {
   await request(app)
