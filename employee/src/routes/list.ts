@@ -8,7 +8,9 @@ router.get(
   "/api/employees",
   requireAuth,
   async (req: Request, res: Response) => {
-    const employees = await Employee.find({});
+    let filter = {};
+    console.log(req.query);
+    const employees = await Employee.find(req.query);
 
     res.send(employees);
   }
