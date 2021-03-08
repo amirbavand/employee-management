@@ -1,0 +1,71 @@
+html {
+  font-size: 10px;
+  font-family: "sans-serif";
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+h1 {
+  font-family: "billabong";
+  text-align: center;
+  font-size: 13rem;
+  font-weight: 100;
+  margin: 2rem 0;
+  letter-spacing: -1px;
+  color: black;
+}
+
+@font-face {
+  font-family: "billabong";
+  src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.woff")
+      format("woff"),
+    url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf")
+      format("truetype"),
+    url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.svg#billabongregular")
+      format("svg");
+}
+
+.form {
+  background: white;
+  margin: auto auto;
+  max-width: 360px;
+  padding: 45px;
+  text-align: center;
+}
+
+.input_text {
+  font-family: sans-serif;
+  background: #f2f2f2;
+  width: 100%;
+  border: none;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin: 15px 0 15px;
+}
+
+.form button {
+  font-family: "sans-serif";
+  text-transform: uppercase;
+  background: #1a74db;
+  width: 40%;
+  border: none;
+  padding: 5px;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+.form button:hover {
+  background: #7b8589;
+}
+
+button:hover {
+  border-color: blue;
+}

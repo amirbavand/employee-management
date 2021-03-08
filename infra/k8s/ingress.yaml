@@ -18,3 +18,7 @@ spec:
             backend:
               serviceName: employee-service
               servicePort: 3000
+          - path: /?(.*)
+            backend:
+              serviceName: client-service
+              servicePort: 3000
