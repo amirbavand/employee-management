@@ -9,12 +9,11 @@ router.delete(
   "/api/employees/:id",
   requireAuth,
   async (req: Request, res: Response) => {
-    const employee = await Employee.findOne({ EmployeeId: req.params.id });
-
+    const employee = await Employee.findById(req.params.id);
     if (!employee) {
       throw new NotFoundError();
     }
-    await Employee.deleteOne({ EmployeeId: req.params.id }, function (err) {
+    await Employee.findByIdAndDelete(req.params.id, function (err) {
       if (err) console.log(err);
       res.status(200).send("succecfully deleted");
     });
