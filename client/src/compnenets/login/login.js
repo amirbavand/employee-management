@@ -12,11 +12,19 @@ class Login extends Component {
     generalError: "",
   };
 
+  handleChangeUsername = (event) => {
+    this.setState({ username: event.target.value });
+  };
+
+  handleChangePassword = (event) => {
+    this.setState({ password: event.target.value });
+  };
+
   handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.target);
-    const username = data.get("username");
-    const password = data.get("password");
+    const username = this.state.username;
+    console.log("this is username", username);
+    const password = this.state.password;
     let usernameError = "";
     let passwordError = "";
     this.state.generalError = "";
@@ -31,8 +39,6 @@ class Login extends Component {
     if (username === "" || password === "") {
       return;
     }
-    console.log(password);
-    console.log(username);
 
     try {
       const values = await axios.post(
@@ -45,10 +51,10 @@ class Login extends Component {
           },
         }
       );
-      console.log(values.data);
       this.setState({ redirectToHome: true });
       return <Redirect to="/home" />;
     } catch (error) {
+      console.log("i am in the catch");
       this.setState({ generalError: "username or password is incorect" });
     }
   };
@@ -71,6 +77,8 @@ class Login extends Component {
               name="username"
               placeholder="username"
               id="username"
+              value={this.state.username}
+              onChange={this.handleChangeUsername}
             />
             <span
               className="warning"
@@ -87,6 +95,8 @@ class Login extends Component {
               name="password"
               placeholder="password"
               id="password"
+              value={this.state.password}
+              onChange={this.handleChangePassword}
             />
             <span
               className="warning"
