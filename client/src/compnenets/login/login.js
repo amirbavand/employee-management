@@ -72,7 +72,11 @@ class Login extends Component {
               placeholder="username"
               id="username"
             />
-            <span className="warning" style={{ color: "red" }}>
+            <span
+              className="warning"
+              id="warning-username"
+              style={{ color: "red" }}
+            >
               {this.state.userError}
             </span>
           </div>
@@ -84,10 +88,18 @@ class Login extends Component {
               placeholder="password"
               id="password"
             />
-            <span className="warning" style={{ color: "red" }}>
+            <span
+              className="warning"
+              id="warning-password"
+              style={{ color: "red" }}
+            >
               {this.state.passError}
             </span>
-            <span className="warning" style={{ color: "red" }}>
+            <span
+              className="warning"
+              id="warning-general"
+              style={{ color: "red" }}
+            >
               {this.state.generalError}
             </span>
           </div>
