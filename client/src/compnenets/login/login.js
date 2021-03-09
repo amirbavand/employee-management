@@ -41,16 +41,10 @@ class Login extends Component {
     }
 
     try {
-      const values = await axios.post(
-        "api/login",
-        {},
-        {
-          auth: {
-            username: username,
-            password: password,
-          },
-        }
-      );
+      const values = await axios.post("api/users/signin", {
+        username: username,
+        password: password,
+      });
       this.setState({ redirectToHome: true });
       return <Redirect to="/home" />;
     } catch (error) {
