@@ -46,7 +46,7 @@ class Login extends Component {
         password: password,
       });
       this.setState({ redirectToHome: true });
-      return <Redirect to="/home" />;
+      return <Redirect to="/list" />;
     } catch (error) {
       console.log("i am in the catch");
       this.setState({ generalError: "username or password is incorect" });
@@ -55,7 +55,7 @@ class Login extends Component {
 
   render() {
     if (this.state.redirectToHome) {
-      return <Redirect to="/home" />;
+      return <Redirect to="/list" />;
     }
     return (
       <div className="form">

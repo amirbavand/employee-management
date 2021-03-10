@@ -21,11 +21,11 @@ router.put(
       .isEmpty()
       .isString()
       .withMessage("Name string is required"),
-    body("Surname")
+    body("Surename")
       .not()
       .isEmpty()
       .isString()
-      .withMessage("Surname string is required"),
+      .withMessage("Surename string is required"),
     body("Address")
       .not()
       .isEmpty()
@@ -39,7 +39,14 @@ router.put(
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { EmployeeId, Name, Surname, PhoneNumber, Address, Title } = req.body;
+    const {
+      EmployeeId,
+      Name,
+      Surename,
+      PhoneNumber,
+      Address,
+      Title,
+    } = req.body;
     const employee = await Employee.findById(req.params.id);
     if (!employee) {
       throw new NotFoundError();
@@ -48,7 +55,7 @@ router.put(
     employee.set({
       EmployeeId: EmployeeId,
       Name: Name,
-      Surname: Surname,
+      Surename: Surename,
       PhoneNumber: PhoneNumber,
       Address: Address,
       Title: Title,

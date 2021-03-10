@@ -17,7 +17,7 @@ it("returns error by insering invalid input", async () => {
     .send({
       EmployeeId: "",
       Name: "amir",
-      Surname: "amir",
+      Surename: "amir",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "engineer",
@@ -30,7 +30,7 @@ it("returns error by insering invalid input", async () => {
     .send({
       EmployeeId: "amir",
       Name: "",
-      Surname: "amir",
+      Surename: "amir",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "engineer",
@@ -43,7 +43,7 @@ it("returns error by insering invalid input", async () => {
     .send({
       EmployeeId: "james",
       Name: "james",
-      Surname: 123,
+      Surename: 123,
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "engineer",
@@ -56,7 +56,7 @@ it("returns error by insering invalid input", async () => {
     .send({
       EmployeeId: "alice",
       Name: "amir",
-      Surname: 123,
+      Surename: 123,
       PhoneNumber: "",
       Address: "Canada",
       Title: "engineer",
@@ -69,7 +69,7 @@ it("returns error by insering invalid input", async () => {
     .send({
       EmployeeId: "joe",
       Name: "amir",
-      Surname: "joe",
+      Surename: "joe",
       PhoneNumber: "123456",
       Address: "",
       Title: "engineer",
@@ -82,7 +82,7 @@ it("returns error by insering invalid input", async () => {
     .send({
       EmployeeId: "donald",
       Name: "amir",
-      Surname: "donald",
+      Surename: "donald",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "",
@@ -100,7 +100,7 @@ it("creates a employee with valid inputs", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -111,7 +111,7 @@ it("creates a employee with valid inputs", async () => {
   expect(employees.length).toEqual(1);
   expect(employees[0].EmployeeId).toEqual("amir");
   expect(employees[0].Name).toEqual("amir");
-  expect(employees[0].Surname).toEqual("bavand");
+  expect(employees[0].Surename).toEqual("bavand");
   expect(employees[0].PhoneNumber).toEqual("123456");
   expect(employees[0].Address).toEqual("Canada");
   expect(employees[0].Title).toEqual("software engineer");
@@ -127,7 +127,7 @@ it("trying to create two employee with same employee id should return error", as
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -140,7 +140,7 @@ it("trying to create two employee with same employee id should return error", as
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",

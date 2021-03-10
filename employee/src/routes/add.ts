@@ -20,7 +20,7 @@ router.post(
       .isEmpty()
       .isString()
       .withMessage("name string is required"),
-    body("Surname")
+    body("Surename")
       .not()
       .isEmpty()
       .isString()
@@ -38,12 +38,19 @@ router.post(
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { EmployeeId, Name, Surname, PhoneNumber, Address, Title } = req.body;
+    const {
+      EmployeeId,
+      Name,
+      Surename,
+      PhoneNumber,
+      Address,
+      Title,
+    } = req.body;
 
     const employee = Employee.build({
       EmployeeId,
       Name,
-      Surname,
+      Surename,
       PhoneNumber,
       Address,
       Title,

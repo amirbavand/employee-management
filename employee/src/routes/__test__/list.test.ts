@@ -18,7 +18,7 @@ it("successfuly list the entire emolyees ", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -29,7 +29,7 @@ it("successfuly list the entire emolyees ", async () => {
     .send({
       EmployeeId: "james",
       Name: "james",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -55,7 +55,7 @@ it("successfuly list the filtered emolyees ", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -66,7 +66,7 @@ it("successfuly list the filtered emolyees ", async () => {
     .send({
       EmployeeId: "james",
       Name: "james",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -78,7 +78,7 @@ it("successfuly list the filtered emolyees ", async () => {
     .send({
       EmployeeId: "craig",
       Name: "james",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "computer scientist ",

@@ -27,7 +27,7 @@ it("successfuly delete the emolyee with valid input", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",

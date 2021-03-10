@@ -12,7 +12,7 @@ it("should return error by inserting wrong employee", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -27,7 +27,7 @@ it("returning 401 error by not signing in", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -44,7 +44,7 @@ it("returning error 400 by invalid request", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -56,7 +56,7 @@ it("returning error 400 by invalid request", async () => {
     .send({
       EmployeeId: "amir",
       Name: "",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -68,7 +68,7 @@ it("returning error 400 by invalid request", async () => {
     .send({
       EmployeeId: "amir",
       Name: "",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -80,7 +80,7 @@ it("returning error 400 by invalid request", async () => {
     .send({
       EmployeeId: "amir",
       Name: "",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -92,7 +92,7 @@ it("returning error 400 by invalid request", async () => {
     .send({
       EmployeeId: "amir",
       Name: "",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -105,7 +105,7 @@ it("returning error 400 by invalid request", async () => {
     .send({
       EmployeeId: "",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -118,7 +118,7 @@ it("returning error 400 by invalid request", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "",
+      Surename: "",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -131,7 +131,7 @@ it("returning error 400 by invalid request", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "",
       Address: "Canada",
       Title: "software engineer",
@@ -144,7 +144,7 @@ it("returning error 400 by invalid request", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "",
       Title: "software engineer",
@@ -157,7 +157,7 @@ it("returning error 400 by invalid request", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "",
@@ -174,7 +174,7 @@ it("should return error if try to assign a employee id that exists in the databa
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -186,7 +186,7 @@ it("should return error if try to assign a employee id that exists in the databa
     .send({
       EmployeeId: "james",
       Name: "james",
-      Surname: "james",
+      Surename: "james",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -198,7 +198,7 @@ it("should return error if try to assign a employee id that exists in the databa
     .send({
       EmployeeId: "james",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "Computer Scientist",
@@ -215,7 +215,7 @@ it("successfuly edit the emolyee with valid input", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "software engineer",
@@ -227,7 +227,7 @@ it("successfuly edit the emolyee with valid input", async () => {
     .send({
       EmployeeId: "amir",
       Name: "amir",
-      Surname: "bavand",
+      Surename: "bavand",
       PhoneNumber: "123456",
       Address: "Canada",
       Title: "Computer Scientist",
@@ -238,7 +238,7 @@ it("successfuly edit the emolyee with valid input", async () => {
 
   expect(employee[0].EmployeeId).toEqual("amir");
   expect(employee[0].Name).toEqual("amir");
-  expect(employee[0].Surname).toEqual("bavand");
+  expect(employee[0].Surename).toEqual("bavand");
   expect(employee[0].PhoneNumber).toEqual("123456");
   expect(employee[0].Address).toEqual("Canada");
   expect(employee[0].Title).toEqual("Computer Scientist");

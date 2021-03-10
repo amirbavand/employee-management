@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 interface UserAttrs {
   EmployeeId: string;
   Name: string;
-  Surname: string;
+  Surename: string;
   PhoneNumber: string;
   Address: string;
   Title: string;
@@ -22,7 +22,7 @@ interface UserModel extends mongoose.Model<EmployeeDoc> {
 interface EmployeeDoc extends mongoose.Document {
   EmployeeId: string;
   Name: string;
-  Surname: string;
+  Surename: string;
   PhoneNumber: string;
   Address: string;
   Title: string;
@@ -39,7 +39,7 @@ const EmployeeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    Surname: {
+    Surename: {
       type: String,
       required: true,
     },
