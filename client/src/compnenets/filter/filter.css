@@ -40,13 +40,10 @@
   border-radius: 4px;
   margin: 15px 0 15px;
 }
-.submitButton_filter :hover {
+.submitButton_filter:hover {
   background: #7b8589;
 }
 
-.submitButton_filter:hover {
-  border-color: rgb(196, 214, 224);
-}
 .clear {
   clear: both;
 }

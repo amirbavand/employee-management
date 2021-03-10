@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./filter.css";
+import { Link, Redirect } from "react-router-dom";
 
 class Filter extends Component {
   state = {
@@ -9,8 +10,68 @@ class Filter extends Component {
     PhoneNumber: "",
     Address: "",
     Title: "",
+    path: "?",
+    redirect: false,
   };
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    if (this.state.EmployeeId !== "")
+      await this.setState({
+        path: this.state.path + "EmployeeId=" + this.state.EmployeeId + "&",
+      });
+    if (this.state.Name !== "")
+      await this.setState({
+        path: this.state.path + "Name=" + this.state.Name + "&",
+      });
+    if (this.state.Surename !== "")
+      await this.setState({
+        path: this.state.path + "Surename=" + this.state.Surename + "&",
+      });
+    if (this.state.PhoneNumber !== "")
+      await this.setState({
+        path: this.state.path + "PhoneNumber=" + this.state.PhoneNumber + "&",
+      });
+    if (this.state.Address !== "")
+      await this.setState({
+        path: this.state.path + "Address=" + this.state.Address + "&",
+      });
+    if (this.state.Title !== "")
+      await this.setState({
+        path: this.state.path + "Title=" + this.state.Title + "&",
+      });
+    this.props.handleFileterSubmit(this.state.path);
+    //  this.setState({ redirect: true });
+  };
+
+  handleChangeEmployeeId = (event) => {
+    this.setState({ EmployeeId: event.target.value });
+  };
+
+  handleChangeName = (event) => {
+    this.setState({ Name: event.target.value });
+  };
+
+  handleChangeSurename = (event) => {
+    this.setState({ Surename: event.target.value });
+  };
+
+  handleChangePhoneNumber = (event) => {
+    this.setState({ PhoneNumber: event.target.value });
+  };
+
+  handleChangeAddress = (event) => {
+    this.setState({ Address: event.target.value });
+  };
+
+  handleChangeTitle = (event) => {
+    this.setState({ Title: event.target.value });
+  };
+
   render() {
+    //   if (this.state.redirect) {
+    //     return <Redirect to={this.state.path} />;
+    //   }
     return (
       <div className="form_filter">
         <div>
