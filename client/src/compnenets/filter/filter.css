@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "billabong";
+  src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.woff")
+      format("woff"),
+    url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf")
+      format("truetype"),
+    url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.svg#billabongregular")
+      format("svg");
+}
+
+.input_form {
+  float: left;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.input_text_filter {
+  font-family: sans-serif;
+  background: #f2f2f2;
+  width: 100%;
+  border: none;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin: 15px 0 15px;
+}
+
+.submitButton_filter {
+  font-family: "sans-serif";
+  text-transform: uppercase;
+  background: #1a74db;
+  width: 20%;
+  border: none;
+  padding: 15px;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 15px 0 15px;
+}
+.submitButton_filter :hover {
+  background: #7b8589;
+}
+
+.submitButton_filter:hover {
+  border-color: rgb(196, 214, 224);
+}
+.clear {
+  clear: both;
+}

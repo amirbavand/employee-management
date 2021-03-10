@@ -5,13 +5,15 @@ import Filter from "../filter/filter";
 
 class List extends Component {
   async componentDidMount() {
-    console.log(queryString.parse(this.props.location.search));
+    //   console.log(queryString.parse(this.props.location.search));
+    console.log(this.props.location.search);
+    console.log("hi");
   }
   render() {
     return (
       <div>
         <Filter />
-        <ShowTable />
+        <ShowTable quryParams={this.props.location.search} />
       </div>
     );
   }
