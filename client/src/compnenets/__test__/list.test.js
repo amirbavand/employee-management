@@ -1,6 +1,6 @@
 import List from "../../compnenets/list/list";
 import ShowTable from "../show-table/show-table";
-import { mount } from "enzyme";
+import { mount, shallow } from "enzyme";
 
 let component;
 
@@ -9,14 +9,10 @@ beforeEach(async () => {
 
   // checkLogin.isLogin = await jest.fn().mockResolvedValueOnce(true);
 
-  component = mount(<List location={location} />);
+  component = shallow(<List location={location} />);
 });
 
-//afterEach(() => {
-//  component.unmount();
-//});
-
-it("has show-table and a filter", async () => {
+it("expext to have a fileter and a ShowTable", async () => {
   expect(component.find("Filter").length).toEqual(1);
   expect(component.find("ShowTable").length).toEqual(1);
 });

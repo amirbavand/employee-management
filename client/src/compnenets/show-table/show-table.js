@@ -3,6 +3,7 @@ import queryString from "query-string";
 import axios from "axios";
 import "./show-table.css";
 import { Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 class ShowTable extends Component {
   state = {
@@ -13,8 +14,11 @@ class ShowTable extends Component {
     const apiPath = "api/employees" + this.props.quryParams;
     try {
       const { data } = await axios.get(apiPath);
+      console.log("this is lengh", data.length);
+      this.state.data = data;
+      console.log(this.state);
+
       this.setState({ data: data, loaded: true });
-      console.log(this.state.data);
     } catch (error) {
       console.log("something went wrong");
     }

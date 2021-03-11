@@ -69,9 +69,6 @@ class Filter extends Component {
   };
 
   render() {
-    //   if (this.state.redirect) {
-    //     return <Redirect to={this.state.path} />;
-    //   }
     return (
       <div className="form_filter">
         <div>

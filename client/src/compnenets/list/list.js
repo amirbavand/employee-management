@@ -24,10 +24,6 @@ class List extends Component {
     if (this.state.redirect) {
       console.log(this.state.paramsUrl, "this is params");
       window.location.search = this.state.paramsUrl;
-
-      //     window.location.reload();
-
-      //   return <Redirect to={this.state.redirectTo} />;
     }
 
     return (

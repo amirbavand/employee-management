@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { BrowserRouter, Redirect, Router } from "react-router-dom";
 import "./employee.css";
 
 class Employee extends Component {
@@ -17,15 +17,11 @@ class Employee extends Component {
   };
 
   async componentDidMount() {
-    const axiosInstance = axios.create({
-      baseURL: "https://employees.dev/",
-    });
-
     const apiPath = "api/employees?_id=" + this.props.match.params.employee_id;
 
     console.log(apiPath);
     try {
-      let { data } = await axiosInstance.get(apiPath);
+      let { data } = await axios.get(apiPath);
       data = data[0];
       this.setState({
         EmployeeId: data.EmployeeId,
@@ -68,12 +64,9 @@ class Employee extends Component {
   };
 
   deleteHandle = async (event) => {
-    const axiosInstance = axios.create({
-      baseURL: "https://employees.dev/",
-    });
     const apiPath = "api/employees/" + this.props.match.params.employee_id;
     try {
-      const values = await axiosInstance.delete(apiPath);
+      const values = await axios.delete(apiPath);
       this.setState({ redirect: true });
     } catch (error) {
       this.setState({ generalError: "could not delete, something wnet wrong" });
@@ -86,9 +79,7 @@ class Employee extends Component {
       this.setState({ editMode: true, buttonText: "submit" });
       return;
     }
-    const axiosInstance = axios.create({
-      baseURL: "https://employees.dev/",
-    });
+
     this.setState({
       EmployeeIdError: "",
       NameError: "",
@@ -102,8 +93,7 @@ class Employee extends Component {
     try {
       const apiPath = "api/employees/" + this.props.match.params.employee_id;
 
-      console.log(this.state.Surename, "this is surename");
-      const values = await axiosInstance.put(apiPath, {
+      const values = await axios.put(apiPath, {
         EmployeeId: this.state.EmployeeId,
         Name: this.state.Name,
         Surename: this.state.Surename,
@@ -111,6 +101,8 @@ class Employee extends Component {
         Address: this.state.Address,
         Title: this.state.Title,
       });
+      console.log(this.state.Surename, "this is surename");
+
       this.setState({ redirect: true });
     } catch (error) {
       this.setState({ generalError: "employee already exists" });
@@ -278,13 +270,15 @@ class Employee extends Component {
             </span>
           </div>
           <div>
-            <button type="submit" className="submitButton">
+            <button type="submit" className="submitButton" id="submitButton">
               {this.state.buttonText}
             </button>
           </div>
         </form>
         <div>
-          <button onClick={this.deleteHandle}>delete</button>
+          <button id="DeleteButton" onClick={this.deleteHandle}>
+            delete
+          </button>
         </div>
       </div>
     );

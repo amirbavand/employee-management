@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./routes";
+import axios from "axios";
+
+axios.defaults.baseURL = "https://employees.dev/";
 
 ReactDOM.render(
   <Router>

@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import "./nav-bar.css";
 import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
+import checkLogin from "../../../src/utils/check-login";
 
 class Navbar extends Component {
   state = {
     clicked: false,
     signouted: false,
+    isLoggedin: false,
+    buttonText: "Sign out",
   };
   constructor(props) {
     super(props);
@@ -14,6 +17,14 @@ class Navbar extends Component {
     this.handleSignout = this.handleSignout.bind(this);
   }
 
+  async componentDidMount() {
+    const result = await checkLogin.isLogin();
+    console.log("this is result", result);
+    this.setState({
+      isLoggedin: result,
+      buttonText: result ? "Sign out" : "Login",
+    });
+  }
   handleClick = () => {
     this.setState({ clicked: !this.state.clicked });
   };
@@ -57,7 +68,7 @@ class Navbar extends Component {
 
           <li key="3">
             <button className="nav-links-mobile" onClick={this.handleSignout}>
-              Sign out
+              {this.state.buttonText}
             </button>
           </li>
         </ul>
@@ -65,7 +76,7 @@ class Navbar extends Component {
           className={`btn  btn--medium btn--primary signout-button`}
           onClick={this.handleSignout}
         >
-          Sign out
+          {this.state.buttonText}
         </button>
       </nav>
     );
