@@ -12,9 +12,16 @@ spec:
       labels:
         app: mongo-eomployee
     spec:
+      volumes:
+        - name: employee-storage
+          persistentVolumeClaim:
+            claimName: employee-database-pvc
       containers:
         - name: mongo-eomployee
           image: mongo
+          volumeMounts:
+            - name: employee-storage
+              mountPath: /data/db
 ---
 apiVersion: v1
 kind: Service
