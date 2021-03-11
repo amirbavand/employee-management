@@ -7,6 +7,7 @@ import { withRouter } from "react-router";
 import Main from "./compnenets/main";
 import Navbar from "./compnenets/nav-bar/nav-bar";
 import Login from "./compnenets/login/login";
+import Employee from "../src/compnenets/employee/employee";
 
 const authPathes = ["/login"];
 
@@ -19,6 +20,7 @@ const Routes = ({ location }) => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/list" component={List} />
       <Route exact path="/Add" component={Add} />
+      <Route exact path="/employees/:employee_id" component={Employee} />
     </Switch>
   </div>
 );
