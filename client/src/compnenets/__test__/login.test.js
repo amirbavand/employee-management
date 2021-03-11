@@ -42,7 +42,7 @@ it("should give error when we do not insert username", () => {
   );
 });
 
-it("should give two  errors when we do not insert username", () => {
+it("should give two  errors when we do not insert password", () => {
   component.update();
   component.find("form").simulate("submit");
   component.update();

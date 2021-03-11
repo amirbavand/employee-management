@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const isLogin = async () => {
+async function isLogin() {
   try {
     await axios.get("/api/users/currentuser");
     console.log("this is loggedin");
@@ -11,4 +11,10 @@ export const isLogin = async () => {
 
     return false;
   }
+}
+
+const checkLogin = {
+  isLogin,
 };
+
+export default checkLogin;

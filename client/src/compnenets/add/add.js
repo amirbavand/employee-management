@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { isLogin } from "../../../src/utils/check-login";
+import checkLogin from "../../../src/utils/check-login";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
@@ -20,10 +20,12 @@ class Add extends Component {
     AddressError: "",
     TitleError: "",
     generalError: "",
+    redirect: false,
   };
 
   async componentDidMount() {
-    const result = await isLogin();
+    const result = await checkLogin.isLogin();
+    console.log("this is result", result);
     this.setState({ isLogedIn: result, loaded: true });
   }
 
@@ -78,7 +80,7 @@ class Add extends Component {
         Address: this.state.Address,
         Title: this.state.Title,
       });
-      return <Redirect to="/list" />;
+      this.setState({ redirect: true });
     } catch (error) {
       this.setState({ generalError: "employee already exists" });
     }
@@ -109,8 +111,9 @@ class Add extends Component {
   };
 
   render() {
-    if (this.state.loaded === false) return <div>loading page</div>;
-    else if (this.state.isLogedIn === false) return <Redirect to="/login" />;
+    if (this.state.redirect === true) return <Redirect to="/list" />;
+    //  if (this.state.loaded === false) return <div>loading page</div>;
+    //  else if (this.state.isLogedIn === false) return <Redirect to="/login" />;
 
     return (
       <div className="form">

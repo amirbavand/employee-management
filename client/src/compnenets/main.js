@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { isLogin } from "../../src/utils/check-login";
+import checkLogin from "../../src/utils/check-login";
 
 class Main extends Component {
   state = {
@@ -9,7 +9,7 @@ class Main extends Component {
   };
 
   async componentDidMount() {
-    const result = await isLogin();
+    const result = await checkLogin.isLogin();
     this.setState({ isLogedIn: result, loaded: true });
   }
 
