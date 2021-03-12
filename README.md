@@ -31,7 +31,7 @@ A simple employee management tool using TypeScript, react and kubernetes
 
 <code>skaffold dev</code>
 
-9. Go to your chrome browser and navigate to employee.dev
+9. Go to your chrome browser and navigate to employees.dev
 
 10. on the page type "thisisunsafe"
 
