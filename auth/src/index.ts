@@ -33,6 +33,3 @@ start();
 
 const a = User.build({ username: "amir", password: "amir" });
 a.save();
-
-const b = User.build({ username: "james", password: "james" });
-b.save();
