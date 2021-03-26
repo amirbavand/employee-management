@@ -3,7 +3,9 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 kubectl create secret generic jwt-secret --from-literal=JWT_KEY=abcd
 
 
-kubectl exec --stdin --tty mongo-eomployee-depl-6fbd7974bb-5k7gm  -- /bin/bash
+kubectl exec --stdin --tty redis-deployment-58c4799ccc-pxxt9 -- /bin/bash
+
+kubectl delete --all services
 
 (or sh)
 

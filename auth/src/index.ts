@@ -25,11 +25,7 @@ const start = async () => {
     console.error(err);
     throw new DatabaseConnectionError();
   }
-  const redisClient = redis.createClient({
-    host: "redis-depl-service",
-    port: 6379,
-    retry_strategy: () => 1000,
-  });
+
   console.log("connected to redis");
 
   app.listen(3000, () => {
@@ -41,4 +37,3 @@ start();
 
 const a = User.build({ username: "amir", password: "amir" });
 a.save();
-export { RedisClient };
